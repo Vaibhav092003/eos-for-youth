@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /eos-for-youth/
+
+# ticketprice-new/<encrypted-token>  ->  ticketprice-new.php?token=<token>
+RewriteRule ^ticketprice-new/([A-Za-z0-9_-]+)/?$ ticketprice-new.php?token=$1 [L,QSA]
+
+# Sirf GET requests ko redirect karo (POST ko nahi)
+RewriteCond %{REQUEST_METHOD} !POST
+RewriteCond %{THE_REQUEST} \s/eos-for-youth/(.+?)\.php[\s?] [NC]
+RewriteRule ^ /eos-for-youth/%1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]

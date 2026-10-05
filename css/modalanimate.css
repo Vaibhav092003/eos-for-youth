@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box
+}
+
+/* .modal-active,
+.modal-active {
+    overflow: hidden
+} */
+
+#modal-container,
+#modal-container2 {
+    position: fixed;
+    display: table;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    z-index: 4
+}
+
+#modal-container.unfolding {
+    transform: scaleY(.01) scaleX(0);
+    animation: unfoldIn 1s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container.unfolding .modal-background .modal {
+    transform: scale(0);
+    animation: zoomIn .5s .8s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container.unfolding.out {
+    transform: scale(1);
+    animation: unfoldOut 1s .3s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container.unfolding.out .modal-background .modal {
+    animation: zoomOut .5s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container2.unfolding2 {
+    transform: scaleY(.01) scaleX(0);
+    animation: unfoldIn 1s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container2.unfolding2 .modal-background2 .modal {
+    transform: scale(0);
+    animation: zoomIn .5s .8s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container2.unfolding2.out {
+    transform: scale(1);
+    animation: unfoldOut 1s .3s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container2.unfolding2.out .modal-background2 .modal {
+    animation: zoomOut .5s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container.bond .modal-background {
+    background: rgba(0, 0, 0, 0);
+    animation: fadeIn .5s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container.bond .modal-background .modal {
+    height: 75px;
+    width: 75px;
+    border-radius: 75px;
+    overflow: hidden;
+    animation: bondJamesBond 1.5s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container.bond .modal-background .modal h2,
+#modal-container.bond .modal-background .modal p {
+    opacity: 0;
+    position: relative;
+    animation: modalContentFadeIn .5s 1.4s linear forwards
+}
+
+#modal-container.bond.out {
+    animation: slowFade .5s 1.5s linear forwards
+}
+
+#modal-container.bond.out .modal-background {
+    background-color: rgba(0, 0, 0, .7);
+    animation: fadeToRed 2s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container.bond.out .modal-background .modal {
+    border-radius: 3px;
+    height: 162px;
+    width: 227px;
+    animation: killShot 1s cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container.bond.out .modal-background .modal h2,
+#modal-container.bond.out .modal-background .modal p {
+    animation: modalContentFadeOut .5s .5 cubic-bezier(.165, .84, .44, 1) forwards
+}
+
+#modal-container .modal-background,
+#modal-container2 .modal-background2 {
+    display: table-cell;
+    background: rgba(0, 0, 0, .8);
+    text-align: center;
+    vertical-align: middle
+}
+
+#modal-container .modal-background .modal,
+#modal-container2 .modal-background2 .modal {
+    background: #fff;
+    padding: 30px;
+    display: inline-block;
+    border-radius: 3px;
+    font-weight: 300;
+    position: relative;
+    width: 50%;
+    text-align: left
+}
+
+#modal-container .modal-background .modal h2,
+#modal-container2 .modal-background2 .modal h2 {
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 15px
+}
+
+#modal-container .modal-background .modal p,
+#modal-container2 .modal-background2 .modal p {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #000000;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.content {
+    min-height: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    z-index: 0
+}
+
+.content h1 {
+    padding: 75px 0 30px 0;
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px
+}
+
+@keyframes unfoldIn {
+    0% {
+        transform: scaleY(.005) scaleX(0)
+    }
+
+    50% {
+        transform: scaleY(.005) scaleX(1)
+    }
+
+    100% {
+        transform: scaleY(1) scaleX(1)
+    }
+}
+
+@keyframes unfoldOut {
+    0% {
+        transform: scaleY(1) scaleX(1)
+    }
+
+    50% {
+        transform: scaleY(.005) scaleX(1)
+    }
+
+    100% {
+        transform: scaleY(.005) scaleX(0)
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+@keyframes zoomOut {
+    0% {
+        transform: scale(1)
+    }
+
+    100% {
+        transform: scale(0)
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        background: rgba(0, 0, 0, 0)
+    }
+
+    100% {
+        background: rgba(0, 0, 0, .7)
+    }
+}
